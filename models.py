@@ -24,4 +24,7 @@ class Course_takers(models.Model):
     course=models.ForeignKey(Courses, on_delete=models.CASCADE)
     """user is named user_id in table"""
     user=models.ForeignKey(Users, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.course.id
 
