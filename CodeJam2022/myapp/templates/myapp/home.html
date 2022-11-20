@@ -9,7 +9,7 @@
             letter-spacing: 2px;
             text-decoration: none;
             text-transform: uppercase;
-            color: lightcoral;
+            color: rgb(199, 8, 8);
             cursor: pointer;
             border: 3px solid;
             padding: 0.25em 0.5em;
@@ -31,6 +31,11 @@
                 padding: 0.25em 0.75em;
             }
             }
+
+        .label {
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
         </style>
         
         <meta charset="utf-8">
@@ -113,10 +118,10 @@
     <div class = "form">
         <form action="/mainmenu" method="post">
         {% csrf_token %}
-            <label for="">username</label>
+            <label for="" class="label ">Username</label>
             <input type="text" id="username" name="username" placeholder="Input username:" required>
             <br><br/>
-            <label for="">password</label>
+            <label for="" class="label ">Password</label>
             <input type="password" id="password" name="password" placeholder="Input password:" required>
             <br><br/>
         
