@@ -2,100 +2,95 @@
 
 {% block content %}
 <style>
-    .container {
-        margin: auto;
-        border: 3px solid rgb(0, 0, 0);
-        padding: 10px;
-        height: 75%;
-        width: 50%;
-        background-color: rgb(253, 139, 139);
+       header h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 70px;
+            font-weight: 600;
+            background-image: repeating-radial-gradient(circle closest-corner at 100px 100px, LightCoral , crimson, Firebrick);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            position: fixed;
+            left: 13%;
+        }
+        .button-54 {
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: lightcoral;
+            cursor: pointer;
+            border: 3px solid;
+            padding: 0.25em 0.5em;
+            box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            }
 
-    }
-    /*.centered_text {
-        text-align: center;
-        /*border: 3px solid rgb(255, 255, 255);
-        border: 3px black;
-    }*/
-    .text_field {
-        /*margin: auto;*/
-        position: relative;
-        top: 85px;
-        text-align: center;
-        background-color: rgb(253, 139, 139);
-        border: 3px solid rgb(253, 139, 139);
-    }
-    /*button{
-        height: 30px;
-        width: 400px;
-        /*display:inline-block;
-        padding:0.35em 1.2em;
-        border:0.1em solid #FFFFFF;
-        margin:0 0.3em 0.3em 0;
-        border-radius:0.12em;
-        box-sizing: border-box;
-        text-decoration:none;
-        font-family:'Roboto',sans-serif;
-        font-weight:300;
-        text-align:center;
-        transition: all 0.2s;    
-        color: black; 
-    }*/
+        .button-54:active {
+            box-shadow: 0px 0px 0px 0px;
+            top: 5px;
+            left: 5px;
+            }
 
-button {
-    height: 30px;
-        width: 400px;
-  border: 3px solid rgb(255, 0, 0);
-  font-family: 'Poppins';
-  color: rgb(0, 0, 0) !important;
-  text-transform: uppercase;
-  font-weight: 700;
-  text-decoration: none;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 50px;
-  display: inline-block;
-  transition: all 0.4s ease 0s;
-}
-
-button:hover {
-  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  transition: all 0.4s ease 0s;
-}
-</style>
-<body style="background-color: rgb(255, 255, 255)">
-    <h1 style="color:rgb(0, 0, 0);text-align: center;border: 3px solid black; font-family:Palatino;margin-left: 368px;margin-right: 368px;background-color: rgb(253, 139, 139);">STUDENT DATABASE MANAGER</h1>
-    <div class="container">
-        <div class="text_field">
-            <!-- <a href="{% url 'users' %}">List of students at McGill</a> <br>
-            <a href="{% url 'courses' %}">List of courses available at McGill</a> <br>
-            <a href="{% url 'course_takers' %}">List of students taking specific courses</a> <br>
-            <a href="{% url 'newUser' %}">Add a new Student to the database</a> <br>
-            <a href="{% url 'newCourse' %}">Add a new Course</a> <br>
-            <a href="{% url 'newCourse_taker' %}">Add a Student to a course</a> -->
-            <div>
-                <form action="{% url 'users' %}">
-                    <button type="submit">List students at McGill</button>
-                 </form>
-                 <form action="{% url 'courses' %}">
-                    <button type="submit">List courses available at McGill</button>
-                 </form>
-                 <form action="{% url 'course_takers' %}">
-                    <button type="submit">List of student Ids in specific courses</button>
-                 </form>
-                 <form action="{% url 'newUser' %}">
-                    <button type="submit">Add a new student</button>
-                 </form>
-                 <form action="{% url 'newCourse' %}">
-                    <button type="submit">Add a new course</button>
-                 </form>
-                 <form action="{% url 'newCourse_taker' %}">
-                    <button type="submit">Add a student to a course</button>
-                 </form>
-            </div>
-        </div>
+            @media (min-width: 768px) {
+        .button-54 {
+                padding: 0.25em 0.75em;
+            }
+            }
+        #personalmenu
+        {
+            position: fixed;
+            left: 40%;
+            top: 30%;
+        }
+        #applicationmenu
+        {
+            position: fixed;
+            left: 37%;
+            top: 40%;
+        }
+        #financialmenu
+        {
+            position: fixed;
+            left: 36%;
+            top: 50%;
+        }
+        #studentdatabase
+        {
+            position: fixed;
+            left: 37%;
+            top: 60%;
+        }
+        #btn1
+        {
+            position: fixed;
+            left: 43%;
+            top: 70%;
+        }
+        #btn2
+        {
+            position: fixed;
+            left: 40%;
+            top: 80%;
+        }
+        body {background-color:lightgray;}
+    </style>
+    <header>
+        <h1>STUDENT DATABASE MANAGER</h1>
+    </header>
+    <img src="https://www.mcgill.ca/visual-identity/files/visual-identity/mcgill_sig_red.jpg" alt="McGill logo" width="100" >
     </div>
+        <button type="submit" class="button-54" id="personalmenu"> <a href="{% url 'users' %}">List of students at McGill</a></button>
+        <button type="submit" class="button-54" id="applicationmenu"> <a href="{% url 'courses' %}">List of courses available at McGill</a></button>
+        <button type="submit" class="button-54" id="financialmenu"> <a href="{% url 'course_takers' %}">List of students taking specific course</a></button>
+        <button type="submit" class="button-54" id="studentdatabase"> <a href="{% url 'newUser' %}">Add a new Student to the database</a></button>    
+        <button type="submit" class="button-54" id="btn1"> <a href="{% url 'newCourse' %}">Add a new Course</a></button>
+        <button type="submit" class="button-54" id="btn2"> <a href="{% url 'newCourse_taker' %}">Add a Student to a course</a></button>      
+    </div>  
 </body>
 
 {% endblock %}
