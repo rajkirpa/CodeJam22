@@ -1,0 +1,34 @@
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Students at McGill</title>
+    </head>
+    <body>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Birth Year</th>
+                    <th scope="col">Nationality</th>
+                    <th scope="col">Full Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in users_list %}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td scope="row">{{i.birth_year}}</td>
+                    <td scope="row">{{i.nationality}}</td>
+                    <td scope="row">{{i.fullname}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
+
+{% endblock %}
