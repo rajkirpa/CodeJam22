@@ -5,20 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Menu</title>
+    <style>
+        header h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 70px;
+            font-weight: 600;
+            background-image: repeating-radial-gradient(circle closest-corner at 100px 100px, LightCoral , crimson, Firebrick);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            position: fixed;
+            left: 40%;
+        }
+        .button-54 {
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: lightcoral;
+            cursor: pointer;
+            border: 3px solid;
+            padding: 0.25em 0.5em;
+            box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            }
+
+        .button-54:active {
+            box-shadow: 0px 0px 0px 0px;
+            top: 5px;
+            left: 5px;
+            }
+
+            @media (min-width: 768px) {
+        .button-54 {
+                padding: 0.25em 0.75em;
+            }
+            }
+        #personalmenu
+        {
+            position: fixed;
+            left: 45%;
+            top: 30%;
+        }
+        #studentmenu
+        {
+            position: fixed;
+            left: 45%;
+            top: 40%;
+        }
+        #applicationmenu
+        {
+            position: fixed;
+            left: 45%;
+            top: 50%;
+        }
+        #financialmenu
+        {
+            position: fixed;
+            left: 45%;
+            top: 60%;
+        }
+        #studentdatabase
+        {
+            position: fixed;
+            left: 45%;
+            top: 70%;
+        }
+        body {background-color:lightgray;}
+    </style>
 </head>
 
 <body>
-    <h1>Main Menu</h1>
-
-    <table width = 80%, align="center">
-        <tr>
-            <th><a href="/personalmenu">Personal Menu </a> </th>
-            <th><a href="/studentmenu">Student Menu </a></th>
-            <th><a href="/applicationmenu">Application Menu </a></th>
-            <th><a href="/financialmenu">Financial Aid & Awards Menu </a></th>
-            <th><a href="{% url 'homepage' %}">Student Database Manager</a></th>
-        </tr>
-        
-    </table>
+    <img src="https://www.mcgill.ca/visual-identity/files/visual-identity/mcgill_sig_red.jpg" alt="McGill logo" width="100" >
+    <header>
+        <h1>Main Menu</h1> 
+    </header>  
+    <div></div>
+        <button type="submit" class="button-54" id="personalmenu"> <a href="/personalmenu">Personal Menu</a></button>
+        <button type="submit" class="button-54" id="studentmenu"> <a href="/studentmenu">Student Menu</a></button>
+        <button type="submit" class="button-54" id="applicationmenu"> <a href="/applicationmenu">Applicant Menu</a></button>
+        <button type="submit" class="button-54" id="financialmenu"> <a href="/financialmenu">Financial Menut</a></button>
+        <button type="submit" class="button-54" id="studentdatabase"> <a href="{% url 'homepage' %}">Student Database</a></button>      
+    </div>
 </body>
 </html>
