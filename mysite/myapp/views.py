@@ -1,10 +1,34 @@
+
+# Create your views here.
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, Http404
+
 
 def home(request):
-    return render(request, "myapp/index.html")
+    try:        
+        return render(request, "myapp/home.html")    
+    except:
+        return Http404
+
+def signin(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            fname = user.first_name
+            return render(request, "myapp/index.html", {'fname': fname})
+        else:
+            messages.error(request, "Bad Credentials")
+            return redirect('home')
+    return render(request, "myapp/MainMenu.html")
+
 
 def signup(request):
     if request.method == 'POST':
@@ -25,25 +49,77 @@ def signup(request):
         return redirect('signin')
     return render(request, "myapp/signup.html")
 
-def signin(request):
+def mainmenu(request):
+    try:
+        return render(request, "myapp/MainMenu.html")
+    except:
+        return Http404
 
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+    
+def homepage(request):
+    return render(request, "myapp/homepage.html")
 
-        user = authenticate(username=username, password=password)
+def users(request):
+    #all lists should be in order, each index in every list will be for one user
+    """user=[]
+    '''names=[]
+    ids=[]
+    nationalities=[]
+    years=[]'''
+    cursor=conn.execute("SELECT id,birth_year,nationality,fullname FROM myapp_user")
+    for row in cursor:
+        '''names.append(row[3])
+        ids.append(row[0])
+        nationalities.append(row[1])
+        years.append(row[2])'''
+        user.append(row)
 
-        if user is not None:
-            login(request, user)
-            fname = user.first_name
-            return render(request, "myapp/index.html", {'fname': fname})
-        else:
-            messages.error(request, "Bad Credentials")
-            return redirect('home')
+    conn.close()"""
 
-    return render(request, "myapp/signin.html")
+    user=User.objects.all()
+    context={"users_list":user}
 
-def signout(request):
-    logout(request)
-    messages.success(request, "Logged out successfully")
-    return redirect('home')
+    return render(request, "myapp/users.html", context)
+
+def courses(request):
+    course=Course.objects.all()
+    context={"courses_list":course}
+    return render(request, "myapp/courses.html",context)
+
+def course_takers(request):
+    course_taker=Course_taker.objects.all()
+    context={"course_takers_list":course_taker}
+    return render(request,"myapp/course_takers.html",context)
+
+def newUser(request):
+    if request.method=='POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/homepage")
+    else:
+        form = UserForm()
+    return render(request,"myapp/newUser.html",{"userform":form})
+
+def newCourse(request):
+    if request.method=='POST':
+        form = CourseForm(request.POST) 
+        if form.is_valid():
+            form.save()
+            return redirect("/homepage")
+        
+    else:
+        form = CourseForm()
+    return render(request,"myapp/newCourse.html",{"courseform":form})
+
+def newCourse_taker(request):
+    if request.method=='POST':
+        form = Course_takerForm(request.POST) 
+        if form.is_valid():
+            form.save()
+            return redirect("/homepage")
+        
+    else:
+        form = Course_takerForm()
+    return render(request,"myapp/newCourse_taker.html",{"course_takerform":form})
+
