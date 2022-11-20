@@ -1,0 +1,13 @@
+.centered_div {
+    margin: auto;
+    border: 3px solid rgb(255, 255, 255);
+    padding: 10px;
+    height: 75%;
+    width: 50%;
+    background-color: rgb(107, 226, 16);
+
+}
+.centered_text {
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+}
