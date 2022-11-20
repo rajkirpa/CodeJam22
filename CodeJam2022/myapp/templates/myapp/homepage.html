@@ -13,27 +13,87 @@
     }
     .centered_text {
         text-align: center;
-        border: 3px solid rgb(255, 255, 255);
+        /*border: 3px solid rgb(255, 255, 255);*/
+        border: none;
     }
     .text_field {
-        margin: auto;
+        /*margin: auto;*/
         position: relative;
-        top: 200px;
+        top: 85px;
         text-align: center;
         background-color: rgb(253, 139, 139);
         border: 3px solid rgb(253, 139, 139);
     }
+    /*button{
+        height: 30px;
+        width: 400px;
+        /*display:inline-block;
+        padding:0.35em 1.2em;
+        border:0.1em solid #FFFFFF;
+        margin:0 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Roboto',sans-serif;
+        font-weight:300;
+        text-align:center;
+        transition: all 0.2s;    
+        color: black; 
+    }*/
+
+button {
+    height: 30px;
+        width: 400px;
+  border: 3px solid rgb(255, 0, 0);
+  font-family: 'Poppins';
+  color: rgb(0, 0, 0) !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 50px;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+button:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
 </style>
-<body style="background-color: rgb(255, 0, 0)">
-    <h1 class ="centered_text" style="color:rgb(255, 255, 255); font-family:Palatino;background-color:red;">STUDENT DATABASE MANAGER</h1>
+<body style="background-color: rgb(246, 218, 218)">
+    <h1 class ="centered_text" style="color:rgb(255, 0, 0); font-family:Palatino;background-color:rgb(246, 218, 218);">STUDENT DATABASE MANAGER</h1>
     <div class="container">
         <div class="text_field">
-            <a href="{% url 'users' %}">List of students at McGill</a> <br>
+            <!-- <a href="{% url 'users' %}">List of students at McGill</a> <br>
             <a href="{% url 'courses' %}">List of courses available at McGill</a> <br>
             <a href="{% url 'course_takers' %}">List of students taking specific courses</a> <br>
             <a href="{% url 'newUser' %}">Add a new Student to the database</a> <br>
             <a href="{% url 'newCourse' %}">Add a new Course</a> <br>
-            <a href="{% url 'newCourse_taker' %}">Add a Student to a course</a>
+            <a href="{% url 'newCourse_taker' %}">Add a Student to a course</a> -->
+            <div>
+                <form action="{% url 'users' %}">
+                    <button type="submit">List students at McGill</button>
+                 </form>
+                 <form action="{% url 'courses' %}">
+                    <button type="submit">List courses available at McGill</button>
+                 </form>
+                 <form action="{% url 'course_takers' %}">
+                    <button type="submit">List of student Ids in specific courses</button>
+                 </form>
+                 <form action="{% url 'newUser' %}">
+                    <button type="submit">Add a new student</button>
+                 </form>
+                 <form action="{% url 'newCourse' %}">
+                    <button type="submit">Add a new course</button>
+                 </form>
+                 <form action="{% url 'newCourse_taker' %}">
+                    <button type="submit">Add a student to a course</button>
+                 </form>
+            </div>
         </div>
     </div>
 </body>
